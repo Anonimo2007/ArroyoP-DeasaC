@@ -6,13 +6,7 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * SlotMachine simulates a slot machine (inspired by "Problem I - Slot
- * Machine", ICPC 2025) that can have any number of wheels, each holding
- * any number of colored symbols. This class only simulates the machine;
- * it does not solve the marathon problem.
- *
  * @author  Gian Franco Arroyo Perez, Nicolas Deaza Casasbuenas
- * @version 1.0
  */
 public class SlotMachine{
 
@@ -24,9 +18,6 @@ public class SlotMachine{
     private boolean everVisible;
     private boolean ok;
 
-    /**
-     * Create a slot machine with no wheels and no symbols, invisible.
-     */
     public SlotMachine(){
         wheels = new ArrayList<Wheel>();
         catalog = new ArrayList<Symbol>();
@@ -40,10 +31,6 @@ public class SlotMachine{
         body.changeSize(200, bodyWidth());
     }
 
-    /**
-     * Add a new (empty) wheel at the given position.
-     * @param pos 1-based position; clamped to [1, number of wheels + 1]
-     */
     public void addWheel(int pos){
         int p = clamp(pos, wheels.size() + 1);
         Wheel w = new Wheel(p - 1);
@@ -54,10 +41,6 @@ public class SlotMachine{
         ok = true;
     }
 
-    /**
-     * Remove the wheel at the given position.
-     * @param pos 1-based position; clamped to [1, number of wheels]
-     */
     public void delWheel(int pos){
         if(wheels.isEmpty()){
             fail("No hay ruedas para eliminar.");
@@ -71,12 +54,6 @@ public class SlotMachine{
         ok = true;
     }
 
-    /**
-     * Add a new symbol (identified by a CSS color name) to the machine's
-     * catalog of available symbols.
-     * @param pos   1-based position; clamped to [1, catalog size + 1]
-     * @param color a standard CSS3 color name
-     */
     public void addSymbol(int pos, String color){
         if(!CssColors.isValid(color)){
             fail("\"" + color + "\" no es un nombre de color CSS valido.");
@@ -87,10 +64,6 @@ public class SlotMachine{
         ok = true;
     }
 
-    /**
-     * Remove a symbol from the catalog by its color.
-     * @param symbol the CSS color name identifying the symbol to remove
-     */
     public void delSymbol(String symbol){
         int idx = indexOfColor(symbol);
         if(idx < 0){
@@ -101,11 +74,6 @@ public class SlotMachine{
         ok = true;
     }
 
-    /**
-     * Place a catalog symbol onto a wheel's strip.
-     * @param wheel  1-based wheel position; clamped to [1, number of wheels]
-     * @param symbol the CSS color name of a symbol already in the catalog
-     */
     public void placeSymbol(int wheel, String symbol){
         if(wheels.isEmpty()){
             fail("La maquina no tiene ruedas.");
@@ -120,10 +88,6 @@ public class SlotMachine{
         ok = true;
     }
 
-    /**
-     * Spin a single wheel, randomly choosing one of its placed symbols.
-     * @param wheel 1-based wheel position; clamped to [1, number of wheels]
-     */
     public void spin(int wheel){
         if(wheels.isEmpty()){
             fail("La maquina no tiene ruedas.");
@@ -140,9 +104,6 @@ public class SlotMachine{
         updateJackpotLook();
     }
 
-    /**
-     * Spin every wheel that currently has at least one symbol placed.
-     */
     public void spin(){
         if(wheels.isEmpty()){
             fail("La maquina no tiene ruedas.");
@@ -163,10 +124,6 @@ public class SlotMachine{
         updateJackpotLook();
     }
 
-    /**
-     * Return the colors of the symbols in the catalog, in position order.
-     * @return an array with one color per catalog symbol, starting at position 1
-     */
     public String[] symbols(){
         String[] result = new String[catalog.size()];
         for(int i = 0; i < catalog.size(); i++){
@@ -176,10 +133,6 @@ public class SlotMachine{
         return result;
     }
 
-    /**
-     * Count how many distinct colors exist in the symbol catalog.
-     * @return the number of different colors among the catalog symbols
-     */
     public int distinctSymbols(){
         Set<String> distinct = new HashSet<String>();
         for(Symbol s : catalog){
@@ -189,11 +142,6 @@ public class SlotMachine{
         return distinct.size();
     }
 
-    /**
-     * Return the colors currently visible on each wheel, left to right.
-     * @return an array with one entry per wheel (null if that wheel has
-     *         never been spun)
-     */
     public String[] configuration(){
         String[] result = new String[wheels.size()];
         for(int i = 0; i < wheels.size(); i++){
@@ -203,11 +151,6 @@ public class SlotMachine{
         return result;
     }
 
-    /**
-     * Indicate whether the current configuration is a winning one, i.e.
-     * every wheel has been spun and all of them show the same color.
-     * @return true if the current configuration is the jackpot
-     */
     public boolean isJackpot(){
         if(wheels.isEmpty()) return false;
         String first = wheels.get(0).currentColor();
@@ -218,9 +161,6 @@ public class SlotMachine{
         return true;
     }
 
-    /**
-     * Make the whole simulator (machine body and wheels) visible.
-     */
     public void makeVisible(){
         visible = true;
         everVisible = true;
@@ -229,10 +169,6 @@ public class SlotMachine{
         ok = true;
     }
 
-    /**
-     * Make the whole simulator invisible. The machine keeps working (all
-     * other operations remain valid) while invisible.
-     */
     public void makeInvisible(){
         visible = false;
         body.makeInvisible();
@@ -240,9 +176,6 @@ public class SlotMachine{
         ok = true;
     }
 
-    /**
-     * Terminate the simulator, hiding its window (if it was ever shown).
-     */
     public void exit(){
         makeInvisible();
         if(everVisible){
@@ -251,11 +184,6 @@ public class SlotMachine{
         ok = true;
     }
 
-    /**
-     * Indicate whether the last operation performed on this machine
-     * completed successfully.
-     * @return true if the last operation succeeded
-     */
     public boolean ok(){
         return ok;
     }
