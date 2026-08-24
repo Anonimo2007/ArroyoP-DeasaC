@@ -1,7 +1,7 @@
 # Retrospectiva — slotMachine, Ciclo 1.
 
 **Autores:** Gian Franco Arroyo Pérez, Nicolas Deaza Casasbuenas
-**Curso:** DOPO-POOB — Escuela Colombiana de Ingeniería.
+**Curso:** DOPO — Escuela Colombiana de Ingeniería.
 
 ## 1. ¿Cuáles fueron los mini-ciclos definidos? Justifíquenlos.
 
