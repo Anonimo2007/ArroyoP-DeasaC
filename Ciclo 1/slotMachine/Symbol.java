@@ -1,5 +1,4 @@
 /**
- * A Symbol is a token identified only by its color (a CSS3 color name).
  * @author  Gian Franco Arroyo Perez, Nicolas Deaza Casasbuenas
  * @version 1.0
  */
