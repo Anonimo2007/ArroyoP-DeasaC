@@ -57,58 +57,41 @@ public class Circle{
         }
     }
     
-    /**
-     * Move the circle a few pixels to the right.
-     */
+
     public void moveRight(){
         moveHorizontal(20);
     }
 
-    /**
-     * Move the circle a few pixels to the left.
-     */
+
     public void moveLeft(){
         moveHorizontal(-20);
     }
 
-    /**
-     * Move the circle a few pixels up.
-     */
+
     public void moveUp(){
         moveVertical(-20);
     }
 
-    /**
-     * Move the circle a few pixels down.
-     */
+
     public void moveDown(){
         moveVertical(20);
     }
 
-    /**
-     * Move the circle horizontally.
-     * @param distance the desired distance in pixels
-     */
+
     public void moveHorizontal(int distance){
         erase();
         xPosition += distance;
         draw();
     }
 
-    /**
-     * Move the circle vertically.
-     * @param distance the desired distance in pixels
-     */
+
     public void moveVertical(int distance){
         erase();
         yPosition += distance;
         draw();
     }
 
-    /**
-     * Slowly move the circle horizontally.
-     * @param distance the desired distance in pixels
-     */
+
     public void slowMoveHorizontal(int distance){
         int delta;
 
@@ -125,10 +108,7 @@ public class Circle{
         }
     }
 
-    /**
-     * Slowly move the circle vertically
-     * @param distance the desired distance in pixels
-     */
+
     public void slowMoveVertical(int distance){
         int delta;
 
@@ -145,21 +125,14 @@ public class Circle{
         }
     }
 
-    /**
-     * Change the size.
-     * @param newDiameter the new size (in pixels). Size must be >=0.
-     */
+
     public void changeSize(int newDiameter){
         erase();
         diameter = newDiameter;
         draw();
     }
 
-    /**
-     * Change the color. 
-     * @param color the new color. Valid colors are "red", "yellow", "blue", "green",
-     * "magenta" and "black".
-     */
+ 
     public void changeColor(String newColor){
         color = newColor;
         draw();
