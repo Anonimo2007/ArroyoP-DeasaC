@@ -3,9 +3,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Extension of the "shapes" project: provides lookup of the standard
- * CSS3 named colors (https://www.w3.org/TR/css-color-3/#svg-color).
- *
  * @author  Gian Franco Arroyo Perez, Nicolas Deaza Casasbuenas
  */
 public class CssColors{
