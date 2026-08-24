@@ -47,7 +47,7 @@ giro en vez de mostrar el resultado final directamente).
 | Integrante | Diseño | Código | Pruebas | Documentación | Total |
 |---|---|---|---|---|---|
 | Gian Franco Arroyo Pérez | 1 h | 3 h | 1 h | 0.5 h | 5.5 h |
-| Nicolas Deaza Casasbuenas | 1.5 h | 3 h | |1 h | 0 h | 5.5 h |
+| Nicolas Deaza Casasbuenas | 1.5 h | 3 h | 1 h | 0 h | 5.5 h |
 
 ## 4. ¿Cuál consideran fue el mayor logro? ¿Por qué?
 
