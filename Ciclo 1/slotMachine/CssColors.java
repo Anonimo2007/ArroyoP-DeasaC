@@ -5,39 +5,25 @@ import java.util.Map;
 /**
  * Extension of the "shapes" project: provides lookup of the standard
  * CSS3 named colors (https://www.w3.org/TR/css-color-3/#svg-color).
- * The original Canvas class only understood six hard-coded color names,
- * but this simulator requires symbols to be identified by any standard
- * CSS color name, so this class supplies that missing capability.
  *
  * @author  Gian Franco Arroyo Perez, Nicolas Deaza Casasbuenas
- * @version 1.0
  */
 public class CssColors{
 
     private static final Map<String, Color> NAMES = build();
 
-    /**
-     * Indicate whether the given text is a valid, recognized CSS color name.
-     * @param name the candidate color name (case-insensitive)
-     * @return true if it is a known CSS3 color name
-     */
+    
     public static boolean isValid(String name){
         return name != null && NAMES.containsKey(name.trim().toLowerCase());
     }
 
-    /**
-     * Translate a CSS color name into its corresponding AWT color.
-     * @param name a valid CSS color name (see isValid)
-     * @return the matching java.awt.Color, or black if unknown
-     */
+
     public static Color toAwt(String name){
         Color c = (name == null) ? null : NAMES.get(name.trim().toLowerCase());
         return (c == null) ? Color.black : c;
     }
 
-    /*
-     * Build the CSS3 extended color keyword table.
-     */
+
     private static Map<String, Color> build(){
         Map<String, Color> m = new HashMap<String, Color>();
         m.put("black", new Color(0,0,0));         m.put("white", new Color(255,255,255));
